@@ -1,0 +1,51 @@
+//Traversing an array is an elementary operation on an array, in which each element will be processed for some operation. Printing elements is one example operation.
+
+Complete the function printSpiral() given in the editor, which accepts a two dimensional array and prints the array in spiral form rotating clockwise.
+
+import java.util.Scanner;
+
+class Result
+{
+  static void printSpiral(int a[][], int r, int c)
+  {
+int i,j=0,k=0,m=r,n=c;
+        while(j<m && k<n) {
+        for(i=k;i<n;++i) {
+        System.out.println(a[j][i]);
+        }
+        j++;
+        for(i=j;i<m;++i) {
+        System.out.println(a[i][n-1]);
+        }
+        n--;
+        if(j<m) {
+        for(i=n-1;i>=k;--i) {
+        System.out.println(a[m-1][i]);
+        }
+        m--;
+        }
+        if(k<n) {
+        for(i=m-1;i>=j;--i) {
+        System.out.println(a[i][k]);
+        }
+        k++;
+        }
+        }
+  }
+  }
+
+class Main
+{
+  public static void main(String[] args)
+  {
+    int r, c, i, j;
+    Scanner sc = new Scanner(System.in);
+    r = sc.nextInt();
+    c = sc.nextInt();
+    int a[][] = new int[50][50];
+    for(i = 0; i < r; i++)
+      for(j = 0; j < c; j++)
+        a[i][j] = sc.nextInt();
+    Result.printSpiral(a, r, c);
+  }
+}
